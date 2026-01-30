@@ -8,236 +8,89 @@
     
     <style>
         :root {
-            /* RANGEELA PALETTE */
-            --primary: #FF0055; /* Hot Pink */
-            --secondary: #00E5FF; /* Cyan */
-            --accent: #FFD600; /* Sunshine Yellow */
-            --purple: #9D00FF;
-            --dark: #1a1a1a;
-            
-            /* DESIGN TOKENS */
-            --glass-card: rgba(255, 255, 255, 0.12);
-            --glass-border: 2px solid rgba(255, 255, 255, 0.4);
-            --blur: blur(24px);
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            
-            /* TYPOGRAPHY */
-            --font-head: 'Bangers', cursive;
-            --font-body: 'Fredoka', sans-serif;
-            --font-hand: 'Indie Flower', cursive;
+            --primary: #FF0055; --secondary: #00E5FF; --accent: #FFD600; --purple: #9D00FF; --dark: #1a1a1a;
+            --glass-card: rgba(255, 255, 255, 0.12); --glass-border: 2px solid rgba(255, 255, 255, 0.4);
+            --blur: blur(24px); --shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --font-head: 'Bangers', cursive; --font-body: 'Fredoka', sans-serif; --font-hand: 'Indie Flower', cursive;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        
         body {
-            font-family: var(--font-body);
-            background: linear-gradient(135deg, #FF0055, #8A2BE2, #00E5FF, #FFD600);
-            background-size: 400% 400%;
-            animation: gradientFlow 15s ease infinite;
-            color: #fff;
-            overflow-x: hidden;
-            font-size: 18px;
-            line-height: 1.6;
+            font-family: var(--font-body); background: linear-gradient(135deg, #FF0055, #8A2BE2, #00E5FF, #FFD600);
+            background-size: 400% 400%; animation: gradientFlow 15s ease infinite; color: #fff;
+            overflow-x: hidden; font-size: 18px; line-height: 1.6;
         }
-
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 { 
-            font-family: var(--font-head); 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #000; 
-            margin-bottom: 15px;
-        }
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         
+        h1, h2, h3 { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 2px; text-shadow: 3px 3px 0px #000; margin-bottom: 15px; }
         h1 { font-size: 4.5rem; line-height: 1; color: var(--accent); }
         h2 { font-size: 3rem; color: #fff; -webkit-text-stroke: 1.5px #000; margin-bottom: 30px; }
-        
-        p { 
-            font-size: 1.2rem; line-height: 1.8; margin-bottom: 25px; 
-            font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            max-width: 800px; margin-left: auto; margin-right: auto;
-        }
+        p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 25px; font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.3); max-width: 800px; margin: 0 auto 25px auto; }
 
-        /* --- GLASS PANEL --- */
         .glass-panel {
-            background: var(--glass-card);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: var(--glass-border);
-            border-radius: 40px;
-            padding: 50px;
-            margin: 60px auto;
-            max-width: 1000px;
-            width: 90%;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 10;
+            background: var(--glass-card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+            border: var(--glass-border); border-radius: 40px; padding: 50px; margin: 60px auto;
+            max-width: 1000px; width: 90%; box-shadow: var(--shadow); position: relative; z-index: 10;
         }
-
-        /* --- HERO --- */
-        .hero-section {
-            min-height: 100vh;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            text-align: center; padding: 20px;
-        }
-        
+        .hero-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
         .logos-row { display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; align-items: center; }
-        .logo { 
-            height: 110px; filter: drop-shadow(0 5px 0px rgba(0,0,0,0.3)); 
-            transition: transform 0.3s; 
-        }
+        .logo { height: 110px; filter: drop-shadow(0 5px 0px rgba(0,0,0,0.3)); transition: transform 0.3s; }
         .logo:hover { transform: scale(1.1) rotate(3deg); }
 
-        /* --- STATS --- */
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px; margin-top: 40px;
-        }
-        .stat-card {
-            background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.6);
-            border-radius: 25px; padding: 25px; text-align: center; transition: 0.3s;
-        }
-        .stat-card:hover { background: #fff; transform: translateY(-5px); }
-        .stat-card:hover .stat-num { text-shadow: none; }
-        .stat-card:hover p { color: #000; text-shadow: none; }
-        .stat-num { font-family: var(--font-head); font-size: 3.5rem; color: var(--accent); text-shadow: 2px 2px 0 #000; line-height: 1; margin-bottom: 10px; }
-        .stat-card p { font-size: 1rem; margin: 0; line-height: 1.4; }
+        .stats-grid, .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .stat-card, .dept-card { background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.6); border-radius: 25px; padding: 25px; text-align: center; transition: 0.3s; }
+        .stat-card:hover, .dept-card:hover { background: #fff; transform: translateY(-5px); color: #000; }
+        .stat-card:hover *, .dept-card:hover * { text-shadow: none; color: #000; }
+        .stat-num { font-family: var(--font-head); font-size: 3.5rem; color: var(--accent); text-shadow: 2px 2px 0 #000; line-height: 1; }
+        .dept-card h3 { color: #fff; text-shadow: 2px 2px 0 #000; font-size: 1.8rem; }
+        .dept-card:hover h3 { color: var(--primary); }
 
-        /* --- DEPARTMENTS --- */
-        .dept-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; margin-top: 40px;
-        }
-        .dept-card {
-            background: rgba(255,255,255,0.2); padding: 35px; border-radius: 30px;
-            border: 2px solid rgba(255,255,255,0.5); transition: 0.3s; text-align: left;
-        }
-        .dept-card:hover { background: #fff; transform: scale(1.02); }
-        .dept-card h3 { color: #fff; text-shadow: 2px 2px 0 #000; font-size: 1.8rem; margin-bottom: 10px; }
-        .dept-card p { font-size: 1.1rem; margin: 0; text-shadow: none; color: #fff; font-weight: 500; }
-        .dept-card:hover h3 { color: var(--primary); text-shadow: none; }
-        .dept-card:hover p { color: #333; }
-
-        /* --- FORM --- */
-        #form-container {
-            background: #fff; border-radius: 40px; padding: 50px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3); color: #333;
-        }
+        #form-container { background: #fff; border-radius: 40px; padding: 50px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); color: #333; }
         #form-container h2 { color: var(--primary); -webkit-text-stroke: 0; text-shadow: none; margin-bottom: 10px; }
         #form-container p { color: #666; text-shadow: none; margin-bottom: 30px; }
-        
         .input-group { margin-bottom: 25px; text-align: left; }
         label { display: block; font-family: var(--font-head); font-size: 1.4rem; color: #333; margin-bottom: 8px; letter-spacing: 1px; }
-        input, select {
-            width: 100%; padding: 18px; border-radius: 15px; border: 2px solid #e0e0e0;
-            background: #f9f9f9; font-family: var(--font-body); font-size: 1.1rem; color: #333; outline: none; transition: 0.3s;
-        }
+        input, select { width: 100%; padding: 18px; border-radius: 15px; border: 2px solid #e0e0e0; background: #f9f9f9; font-family: var(--font-body); font-size: 1.1rem; color: #333; outline: none; transition: 0.3s; }
         input:focus, select:focus { border-color: var(--primary); background: #fff; box-shadow: 0 5px 20px rgba(255, 0, 85, 0.1); }
 
-        .tags-area { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
-        .tag {
-            padding: 10px 20px; background: #f0f0f0; border-radius: 50px; cursor: pointer;
-            font-size: 1rem; font-weight: 600; color: #555; transition: 0.2s; border: 2px solid transparent;
-        }
+        /* TAGS & CATEGORIES */
+        .tag-category { margin-bottom: 20px; }
+        .tag-cat-title { font-weight: bold; color: var(--primary); margin-bottom: 10px; font-size: 1.1rem; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 5px; display: inline-block;}
+        .tags-area { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { padding: 8px 16px; background: #f0f0f0; border-radius: 50px; cursor: pointer; font-size: 0.9rem; font-weight: 600; color: #555; transition: 0.2s; border: 2px solid transparent; user-select: none; }
         .tag:hover { background: #e0e0e0; }
         .tag.selected { background: var(--primary); color: #fff; border-color: var(--primary); transform: scale(1.05); }
 
-        .btn-main {
-            background: var(--accent); color: #000; border: none; padding: 18px 50px;
-            font-family: var(--font-head); font-size: 1.8rem; border-radius: 60px;
-            cursor: pointer; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: all 0.2s; display: inline-block; text-decoration: none;
-        }
+        .btn-main { background: var(--accent); color: #000; border: none; padding: 18px 50px; font-family: var(--font-head); font-size: 1.8rem; border-radius: 60px; cursor: pointer; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: all 0.2s; display: inline-block; text-decoration: none; }
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); background: #fff; }
         .btn-green { background: #00E5FF; color: #000; }
 
-        /* --- LOADER --- */
-        #loader {
-            position: fixed; inset: 0; background: radial-gradient(circle, #00E5FF, #FF0055); z-index: 9999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: opacity 0.8s ease; overflow: hidden;
-        }
+        #loader { position: fixed; inset: 0; background: radial-gradient(circle, #00E5FF, #FF0055); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.8s ease; overflow: hidden; }
         .loader-text { font-family: var(--font-head); font-size: 5rem; color: #fff; -webkit-text-stroke: 3px #000; z-index: 10; animation: pulse 1s infinite alternate; }
         .floater { position: absolute; font-size: 3rem; opacity: 0.8; animation: floatUp linear infinite; }
-        @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+        @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
         @keyframes pulse { from { transform: scale(1); } to { transform: scale(1.05); } }
 
-        /* --- NAV AT BOTTOM --- */
-        .nav-sticky {
-            position: fixed; 
-            bottom: 20px; /* MOVED TO BOTTOM */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3000; /* Ensure it's on top of music button */
-            display: flex; 
-            gap: 10px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 2px solid rgba(255,255,255,0.5);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-        .nav-btn {
-            background: #fff; border: 2px solid #000; color: #000;
-            padding: 10px 20px; border-radius: 25px; font-weight: bold;
-            cursor: pointer; transition: 0.3s; text-decoration: none;
-            box-shadow: 3px 3px 0 #000; font-size: 1rem;
-        }
+        .nav-sticky { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 3000; display: flex; gap: 10px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .nav-btn { background: #fff; border: 2px solid #000; color: #000; padding: 10px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; text-decoration: none; box-shadow: 3px 3px 0 #000; font-size: 1rem; }
         .nav-btn:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 #000; }
 
-        /* --- MEMOIR (SLIDER) CSS --- */
-        #memoir-modal {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 5000;
-            display: none; flex-direction: column; justify-content: center; align-items: center;
-        }
-        .slider-container {
-            width: 90%; max-width: 600px; height: auto; position: relative;
-            perspective: 1000px;
-        }
-        .slide-card {
-            background: #fff; padding: 15px 15px 50px 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transform: rotate(-2deg); transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-            border-radius: 5px; text-align: center; position: relative;
-        }
+        /* MEMOIR MODAL */
+        #memoir-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 5000; display: none; flex-direction: column; justify-content: center; align-items: center; }
+        .slider-container { width: 90%; max-width: 600px; position: relative; perspective: 1000px; }
+        .slide-card { background: #fff; padding: 15px 15px 50px 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: rotate(-2deg); transition: 0.5s; border-radius: 5px; text-align: center; }
         .slide-card img { width: 100%; height: auto; max-height: 50vh; object-fit: contain; border: 2px solid #eee; }
-        .photo-caption {
-            font-family: 'Indie Flower', cursive; color: #333; font-size: 1.8rem; margin-top: 15px;
-        }
-        .tape {
-            width: 120px; height: 35px; background: rgba(255, 255, 255, 0.7);
-            position: absolute; top: -15px; left: 50%; transform: translateX(-50%) rotate(3deg);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        /* Animation classes */
+        .photo-caption { font-family: 'Indie Flower', cursive; color: #333; font-size: 1.8rem; margin-top: 15px; }
         .slide-card.anim-next { transform: translateX(100vw) rotate(45deg); opacity: 0; }
         .slide-card.anim-prev { transform: translateX(-100vw) rotate(-45deg); opacity: 0; }
-
-        .book-nav {
-            margin-top: 30px; display: flex; gap: 30px; align-items: center;
-        }
-        .book-btn {
-            background: var(--accent); border: 3px solid #000; padding: 15px 25px; 
-            font-family: var(--font-head); font-size: 1.5rem; cursor: pointer; border-radius: 40px;
-            box-shadow: 5px 5px 0 #000; transition: 0.2s;
-        }
-        .book-btn:active { transform: translate(5px, 5px); box-shadow: none; }
-
-        /* --- UTILS --- */
+        .book-nav { margin-top: 30px; display: flex; gap: 30px; align-items: center; }
+        .book-btn { background: var(--accent); border: 3px solid #000; padding: 15px 25px; font-family: var(--font-head); font-size: 1.5rem; cursor: pointer; border-radius: 40px; box-shadow: 5px 5px 0 #000; transition: 0.2s; }
+        
         .hidden { display: none !important; }
         .scroll-reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
         .confetti { position: fixed; width: 12px; height: 12px; z-index: 9999; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
-        .music-btn { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition:0.2s;}
-        .music-btn:active { transform: scale(0.9); }
+        .music-btn { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition:0.2s; }
     </style>
 </head>
 <body>
@@ -256,182 +109,91 @@
 
     <div id="memoir-modal">
         <div style="position: absolute; top: 30px; right: 30px; color: #fff; cursor: pointer; font-size: 2.5rem; font-family: var(--font-head); text-shadow: 3px 3px 0 #000;" onclick="closeMemoir()">CLOSE X</div>
-        
         <div class="slider-container">
             <div class="slide-card" id="current-slide">
-                <div class="tape"></div>
                 <img id="slide-img" src="" alt="Memory">
                 <div class="photo-caption" id="slide-cap"></div>
             </div>
         </div>
-
         <div class="book-nav">
             <button class="book-btn" onclick="prevSlide()">&lt; PREV</button>
-            <div style="color: #fff; font-family: var(--font-head); font-size: 1.8rem; text-shadow: 2px 2px 0 #000;" id="slide-count">1 / 12</div>
+            <div style="color: #fff; font-family: var(--font-head); font-size: 1.8rem; text-shadow: 2px 2px 0 #000;" id="slide-count"></div>
             <button class="book-btn" onclick="nextSlide()">NEXT &gt;</button>
         </div>
     </div>
 
-    <div id="loader">
-        <div class="loader-text">PAINTING...</div>
-    </div>
+    <div id="loader"><div class="loader-text">PAINTING...</div></div>
 
     <section class="hero-section">
         <div class="logos-row">
             <img src="https://i.postimg.cc/QNBczByN/calcutta_logo_DARK_VERSION.png" class="logo" alt="Leo Club">
             <img src="https://i.postimg.cc/Y2JQBp5H/LOGO_OG.png" class="logo" alt="OG Logo">
         </div>
-        
         <h1>APNA BAZAAR</h1>
         <h2 style="font-size: 1.5rem; letter-spacing: 5px; color: #fff; text-shadow:none; -webkit-text-stroke:0;">SEASON 5</h2>
         <h2 style="background: #000; padding: 10px 30px; transform: rotate(-2deg); display: inline-block;">KHUSHIYON KA MELA</h2>
-        
-        <p style="color: #fff; margin-top: 30px;">
-            Kolkata’s Most Dignified Donation Carnival.<br>
-            Where Charity Meets Chaos. Where Dignity Meets Delight.
-        </p>
-        
+        <p style="color: #fff; margin-top: 30px;">Kolkata’s Most Dignified Donation Carnival.<br>Where Charity Meets Chaos.</p>
         <a href="#about" class="btn-main">EXPLORE THE MAGIC</a>
     </section>
 
     <section id="about" class="glass-panel scroll-reveal">
         <h2 style="text-align: center; color: var(--accent);">WHAT IS THIS?</h2>
-        <p style="text-align: center;">
-            Apna Bazaar is not just a donation drive. It is a <b>movement for dignity</b>.
-        </p>
-        <p style="text-align: center;">
-            Imagine 800+ underprivileged children walking into a carnival. They don't beg. They don't queue for handouts. <b>They Shop.</b> Using "Apna Bazaar Currency" they earn by playing games, they buy clothes, toys, and essentials.
-        </p>
-        
+        <p style="text-align: center;">Apna Bazaar is not just a donation drive. It is a <b>movement for dignity</b>. Imagine 800+ children shopping with fake currency they earned.</p>
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-num">2018</div>
-                <p>Started with 250 Kids</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-num">Season 5</div>
-                <p>Target: 800+ Kids</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-num">Art Mela</div>
-                <p>Theme: Creative Chaos</p>
-            </div>
+            <div class="stat-card"><div class="stat-num">2018</div><p>Started with 250 Kids</p></div>
+            <div class="stat-card"><div class="stat-num">Season 5</div><p>Target: 800+ Kids</p></div>
+            <div class="stat-card"><div class="stat-num">Art Mela</div><p>Theme: Creative Chaos</p></div>
         </div>
     </section>
 
     <section id="departments" class="glass-panel scroll-reveal">
         <h2 style="text-align: center; color: var(--secondary);">FIND YOUR SQUAD</h2>
-        <p style="text-align: center;">An engine fueled by four powerful pistons. Where do you fit in?</p>
-        
         <div class="dept-grid">
-            <div class="dept-card">
-                <h3>📦 INVENTORY</h3>
-                <p>Collection drives, heavy lifting, sorting, and categorizing thousands of items. High physical intensity.</p>
-            </div>
-            <div class="dept-card">
-                <h3>💰 FINANCE</h3>
-                <p>Fundraising, Budgeting, Sponsorship Pitching, and designing the "Fake Currency" economics.</p>
-            </div>
-            <div class="dept-card">
-                <h3>📢 OUTREACH & PR</h3>
-                <p>Social media, Reels, Content Creation, and Cold Calling. You make the world see us.</p>
-            </div>
-            <div class="dept-card">
-                <h3>🤝 MANPOWER</h3>
-                <p>Team Apna Bazaar. Crowd control, volunteer coordination, and ensuring the event flows like water.</p>
-            </div>
+            <div class="dept-card"><h3>📦 INVENTORY</h3><p>Heavy lifting, sorting, logistics. The backbone of the event.</p></div>
+            <div class="dept-card"><h3>💰 FINANCE</h3><p>Budgeting, bargaining, sponsorships, currency management.</p></div>
+            <div class="dept-card"><h3>📢 OUTREACH</h3><p>Social media, content, cold calling, influencer management.</p></div>
+            <div class="dept-card"><h3>🤝 MANPOWER</h3><p>Crowd control, volunteer management, event flow.</p></div>
         </div>
     </section>
 
     <div id="form-container" class="glass-panel scroll-reveal">
-        <div style="text-align: center;">
-            <h2>JOIN THE REVOLUTION</h2>
-            <p>Fill this form to become a volunteer.</p>
-        </div>
-        
+        <div style="text-align: center;"><h2>JOIN THE REVOLUTION</h2><p>Fill this form to become a volunteer.</p></div>
         <form id="ab-form" onsubmit="return false;">
             
             <div id="step-1" class="form-step">
                 <label>Step 1: The Basics</label>
-                <div class="input-group">
-                    <label style="font-size: 1rem; color: #555;">Full Name</label>
-                    <input type="text" id="name" placeholder="e.g. Rahul Gupta">
-                </div>
-                <div class="input-group">
-                    <label style="font-size: 1rem; color: #555;">WhatsApp Number</label>
-                    <input type="tel" id="phone" placeholder="Crucial for updates">
-                </div>
-                <div class="input-group">
-                    <label style="font-size: 1rem; color: #555;">Email</label>
-                    <input type="email" id="email" placeholder="e.g. rahul@gmail.com">
-                </div>
-                <div style="text-align: right;">
-                    <button class="btn-main" onclick="nextStep(2)">NEXT >></button>
-                </div>
+                <div class="input-group"><label>Full Name</label><input type="text" id="name" placeholder="e.g. Rahul Gupta"></div>
+                <div class="input-group"><label>WhatsApp Number</label><input type="tel" id="phone" placeholder="Crucial for updates"></div>
+                <div class="input-group"><label>Email</label><input type="email" id="email" placeholder="e.g. rahul@gmail.com"></div>
+                <div style="text-align: right;"><button class="btn-main" onclick="nextStep(2)">NEXT >></button></div>
             </div>
 
             <div id="step-2" class="form-step hidden">
                 <label>Step 2: Background</label>
-                <div class="input-group">
-                    <label style="font-size: 1rem; color: #555;">Age</label>
-                    <input type="number" id="age">
-                </div>
-                <div class="input-group">
-                    <label style="font-size: 1rem; color: #555;">College / Organization</label>
-                    <input type="text" id="org">
-                </div>
-                <div class="input-group">
-                    <label style="font-size: 1rem; color: #555;">Experience?</label>
-                    <select id="exp">
-                        <option value="New">First Timer</option>
-                        <option value="Veteran">Returning Volunteer</option>
-                    </select>
-                </div>
-                <div style="text-align: right;">
-                    <button class="btn-main" onclick="nextStep(3)">NEXT >></button>
-                </div>
+                <div class="input-group"><label>Age</label><input type="number" id="age"></div>
+                <div class="input-group"><label>College / Organization</label><input type="text" id="org"></div>
+                <div class="input-group"><label>Experience?</label><select id="exp"><option value="New">First Timer</option><option value="Veteran">Returning Volunteer</option></select></div>
+                <div style="text-align: right;"><button class="btn-main" onclick="nextStep(3)">NEXT >></button></div>
             </div>
 
             <div id="step-3" class="form-step hidden">
-                <label>Step 3: Your Skills</label>
-                <p style="margin-bottom: 10px; font-size: 0.9rem;">Tap what you are good at:</p>
-                <div class="tags-area" id="tag-container"></div>
-                
+                <label>Step 3: Your Skills (Tap to select)</label>
+                <div id="all-tags-container" style="max-height: 400px; overflow-y: auto; padding-right:10px;">
+                    </div>
                 <div id="rec-box" style="margin-top:25px; padding:20px; background:#f0f8ff; border-radius:15px; border-left: 5px solid var(--secondary); display:none;">
-                    <h4 style="color:#333; margin:0; font-family:var(--font-head); font-size:1.2rem;">RECOMMENDED DEPARTMENT:</h4>
-                    <h2 style="color:var(--secondary); margin:5px 0 0 0; font-size:2rem; -webkit-text-stroke:0; text-shadow:none;" id="rec-dept">MANPOWER</h2>
+                    <h4 style="color:#333; margin:0; font-family:var(--font-head);">RECOMMENDED:</h4>
+                    <h2 style="color:var(--secondary); margin:0;" id="rec-dept">MANPOWER</h2>
                 </div>
-                
-                <div style="text-align: right; margin-top: 20px;">
-                    <button class="btn-main" onclick="nextStep(4)">NEXT >></button>
-                </div>
+                <div style="text-align: right; margin-top: 20px;"><button class="btn-main" onclick="nextStep(4)">NEXT >></button></div>
             </div>
 
             <div id="step-4" class="form-step hidden">
                 <label>Step 4: Commitment</label>
-                <div class="input-group">
-                    <label style="font-size: 1rem; color: #555;">Availability (March 2026)</label>
-                    <select id="avail">
-                        <option value="Event Days">Event Days Only</option>
-                        <option value="Weekends">Weekends + Event</option>
-                        <option value="Flexible">Flexible</option>
-                        <option value="24/7">24/7 (Beast Mode)</option>
-                    </select>
-                </div>
-                
+                <div class="input-group"><label>Availability</label><select id="avail"><option value="Event Days">Event Days Only</option><option value="Weekends">Weekends + Event</option><option value="Flexible">Flexible</option><option value="24/7">24/7 (Beast Mode)</option></select></div>
                 <div style="background:#fff3cd; padding:20px; border-radius:15px; border: 1px solid #ffeeba; margin-bottom: 20px;">
-                    <label style="display:flex; gap:15px; align-items:start; cursor:pointer;">
-                        <input type="checkbox" id="core" style="width:25px; height:25px; margin-top: 5px;">
-                        <span style="font-size:1rem; color: #856404; font-family: var(--font-body); font-weight: normal;">
-                            <b style="font-family: var(--font-head); font-size: 1.2rem;">Core Team Interest?</b><br>
-                            Check this if you are ready for leadership roles, serious time commitment, and a phone interview.
-                        </span>
-                    </label>
+                    <label style="display:flex; gap:15px; align-items:start; cursor:pointer;"><input type="checkbox" id="core" style="width:25px; height:25px; margin-top: 5px;"><span style="font-size:1rem; color: #856404; font-family: var(--font-body); font-weight: normal;"><b style="font-family: var(--font-head); font-size: 1.2rem;">Core Team Interest?</b><br>Serious responsibility. Phone interview required.</span></label>
                 </div>
-                
-                <div style="text-align: center;">
-                    <button class="btn-main btn-green" onclick="submitForm()">SUBMIT APPLICATION</button>
-                </div>
+                <div style="text-align: center;"><button class="btn-main btn-green" onclick="submitForm()">SUBMIT APPLICATION</button></div>
             </div>
 
             <div id="step-success" class="form-step hidden" style="text-align:center;">
@@ -444,15 +206,13 @@
     </div>
 
     <script>
-        // CONFIG
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzyH6tdPiUbngkHARCmCXqbvbQho6tu8iS7psBQYPYlvCZDRbZGodrlgV1zUxxFRCf6DA/exec";
         const ADMIN_PHONE = "918017758446"; 
 
-        // STATE
         let formData = { tags: [], scores: { Inventory:0, Finance:0, PR:0, Manpower:0 }, dept: "Manpower", step: 0 };
         let currentSlideIdx = 0;
-        
-        // ALL PHOTOS
+        let startTime = Date.now(); // Timer start
+
         const memoirPhotos = [
             { url: "https://i.postimg.cc/DfBy15c9/the-team-apna-bazaar-shunya-chaar.jpg", cap: "The Dream Team (Season 4)" },
             { url: "https://i.postimg.cc/4NytcYpV/children_handing_out_their_cash_for_the_bidding_at_auction.jpg", cap: "The Joy of Bidding" },
@@ -468,30 +228,43 @@
             { url: "https://imgtree.co/get/YsJonU.jpeg", cap: "Community" }
         ];
 
+        // MASSIVE SKILL LIBRARY (30+ PER DEPT)
+        const tagCategories = {
+            "Inventory": [
+                "Heavy Lifting", "Box Moving", "Sorting Clothes", "Size Categorization", "Toy Repair", "Shoe Cleaning",
+                "Packaging", "Labeling", "Loading Trucks", "Unloading Trucks", "Inventory Counting", "Stock Management",
+                "Warehouse Org", "Decor Setup", "Stall Building", "Hammering/Drilling", "Waste Management", "Cleanliness",
+                "Logistics", "Dispatch", "Supply Tracking", "Material Handling", "Ladder Climbing", "Space Planning",
+                "Safety Check", "Quality Control", "Heavy Duty Work", "Physical Stamina", "Night Shift Ready", "Team Lifting"
+            ],
+            "Finance": [
+                "Budgeting", "Cash Handling", "Currency Counting", "Fake Note Mgmt", "Bargaining", "Vendor Negotiation",
+                "Sponsorship Pitch", "Corporate Sales", "Excel / Sheets", "Accounting", "Receipt Management", "Expense Tracking",
+                "Cost Estimation", "Financial Reporting", "Audit Assistance", "Pricing Strategy", "Ticket Sales", "Auction Assistance",
+                "Fundraising", "Donor Relations", "Valuation", "Calculator Wizard", "Trustworthiness", "Fast Calculation",
+                "Bank Work", "Digital Payments", "Data Entry", "Profit/Loss", "Procurement Deals", "Market Analysis"
+            ],
+            "PR": [
+                "Social Media", "Reels Creation", "Video Editing", "Photography", "Graphic Design", "Content Writing",
+                "Storytelling", "Anchoring", "Public Speaking", "Cold Calling", "Influencer Outreach", "Brand Mgmt",
+                "Press Release", "Crowdfunding", "Poster Design", "Hashtag Research", "Community Mgmt", "Live Streaming",
+                "Interviewing", "Viral Trends", "Caption Writing", "WhatsApp Broadcast", "Hype Building", "Media Liaison",
+                "Event Coverage", "Behind The Scenes", "Vlogging", "Creative Direction", "Voiceover", "Animation"
+            ],
+            "Manpower": [
+                "Crowd Control", "Leadership", "Team Management", "Crisis Management", "Conflict Resolution", "Empathy",
+                "Patience", "Event Flow", "Queue Management", "Volunteer Coord", "Time Management", "Dispatching",
+                "Runner", "Hospitality", "Guest Relations", "Security Support", "First Aid", "Safety Marshal",
+                "Motivation", "Communication", "Problem Solving", "Discipline Enforcement", "Shift Management", "Energy Boosting",
+                "Beneficiary Guide", "Stage Management", "Mic Handling", "Floor Management", "Logistics Support", "All Rounder"
+            ]
+        };
+
         window.onload = () => {
             createFloatingArt();
+            initTags();
             setTimeout(() => { document.getElementById('loader').style.opacity=0; setTimeout(()=>document.getElementById('loader').remove(),800); }, 2500);
             
-            // TAGS
-            const tags = [
-                {n:"Heavy Lifting", t:"Inventory"}, {n:"Sorting", t:"Inventory"}, {n:"Decor", t:"Inventory"},
-                {n:"Accounting", t:"Finance"}, {n:"Budgeting", t:"Finance"}, {n:"Sponsorships", t:"Finance"},
-                {n:"Video Editing", t:"PR"}, {n:"Anchoring", t:"PR"}, {n:"Photography", t:"PR"},
-                {n:"Crowd Control", t:"Manpower"}, {n:"Leadership", t:"Manpower"}, {n:"Running Errands", t:"Manpower"}
-            ];
-            const tc = document.getElementById('tag-container');
-            tags.forEach(t => {
-                let el = document.createElement('div'); el.className='tag'; el.innerText=t.n;
-                el.onclick = () => {
-                    el.classList.toggle('selected');
-                    if(el.classList.contains('selected')) { formData.tags.push(t.n); formData.scores[t.t]++; }
-                    else { formData.tags = formData.tags.filter(x=>x!==t.n); formData.scores[t.t]--; }
-                    calcDept();
-                };
-                tc.appendChild(el);
-            });
-
-            // SCROLL REVEAL
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
             });
@@ -499,73 +272,56 @@
             setupBeacon();
         };
 
-        // --- MEMOIR (SLIDER) LOGIC FIXED ---
-        function openMemoir() { 
-            document.getElementById('memoir-modal').style.display = 'flex';
-            currentSlideIdx = 0;
-            updateSlide();
-        }
-        function closeMemoir() { document.getElementById('memoir-modal').style.display = 'none'; }
-        
-        function nextSlide() {
-            const card = document.getElementById('current-slide');
-            card.classList.add('anim-next');
-            setTimeout(() => {
-                currentSlideIdx = (currentSlideIdx + 1) % memoirPhotos.length;
-                updateSlide();
-                card.classList.remove('anim-next');
-            }, 300);
-        }
-        
-        function prevSlide() {
-            const card = document.getElementById('current-slide');
-            card.classList.add('anim-prev');
-            setTimeout(() => {
-                currentSlideIdx = (currentSlideIdx - 1 + memoirPhotos.length) % memoirPhotos.length;
-                updateSlide();
-                card.classList.remove('anim-prev');
-            }, 300);
-        }
-        
-        function updateSlide() {
-            const photo = memoirPhotos[currentSlideIdx];
-            document.getElementById('slide-img').src = photo.url;
-            document.getElementById('slide-cap').innerText = photo.cap;
-            document.getElementById('slide-count').innerText = `${currentSlideIdx + 1} / ${memoirPhotos.length}`;
-        }
-
-        // --- FORM LOGIC ---
-        function createFloatingArt() {
-            const emojis = ['🎨', '🖌️', '🎭', '🎪', '✨', '🖍️', '🎉', '🎵'];
-            const container = document.getElementById('loader');
-            for(let i=0; i<15; i++) {
-                let el = document.createElement('div');
-                el.className = 'floater';
-                el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                el.style.left = Math.random() * 100 + 'vw';
-                el.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                el.style.fontSize = (Math.random() * 2 + 2) + 'rem';
-                container.appendChild(el);
+        function initTags() {
+            const container = document.getElementById('all-tags-container');
+            for(let cat in tagCategories) {
+                let div = document.createElement('div');
+                div.className = "tag-category";
+                div.innerHTML = `<div class="tag-cat-title">${cat}</div>`;
+                let area = document.createElement('div');
+                area.className = "tags-area";
+                
+                tagCategories[cat].forEach(t => {
+                    let el = document.createElement('div'); el.className='tag'; el.innerText=t;
+                    el.onclick = () => {
+                        el.classList.toggle('selected');
+                        if(el.classList.contains('selected')) { formData.tags.push(t); formData.scores[cat]++; }
+                        else { formData.tags = formData.tags.filter(x=>x!==t); formData.scores[cat]--; }
+                        calcDept();
+                    };
+                    area.appendChild(el);
+                });
+                div.appendChild(area);
+                container.appendChild(div);
             }
         }
 
-        function calcDept() {
-            let max = -1, best = "Manpower";
-            for(let d in formData.scores) if(formData.scores[d]>max){ max=formData.scores[d]; best=d; }
-            formData.dept = best;
-            document.getElementById('rec-dept').innerText = best.toUpperCase();
-            document.getElementById('rec-box').style.display = 'block';
-        }
+        // --- CLIENT-SIDE AI ENGINE ---
+        function generateAISummary(timeSeconds) {
+            let speed = timeSeconds < 60 ? "⚡ Fast" : (timeSeconds > 300 ? "🐢 Thorough" : "✅ Balanced");
+            let skillCount = formData.tags.length;
+            
+            // Determine Dominant Trait
+            let maxScore = 0;
+            let dominant = "Generalist";
+            for(let d in formData.scores) {
+                if(formData.scores[d] > maxScore) { maxScore = formData.scores[d]; dominant = d + " Focus"; }
+            }
+            if(skillCount > 20) dominant = "Jack of All Trades";
+            if(skillCount < 3) dominant = "Newbie";
 
-        function nextStep(s) {
-            if(s===2 && (!document.getElementById('name').value || !document.getElementById('phone').value)) { alert("Details required!"); return; }
-            formData.step = s; trackDropOff();
-            document.querySelectorAll('.form-step').forEach(e=>e.classList.add('hidden'));
-            document.getElementById('step-'+s).classList.remove('hidden');
+            let coreFlag = document.getElementById('core').checked ? " | 🔥 CORE INTEREST" : "";
+            
+            return `AI Profile: ${speed} Applicant (${Math.floor(timeSeconds)}s). ${skillCount} Skills. Type: ${dominant}${coreFlag}. Rec Dept: ${formData.dept}.`;
         }
 
         function submitForm() {
             const btn = document.querySelector('#step-4 .btn-main'); btn.innerText="PROCESSING...";
+            
+            let endTime = Date.now();
+            let timeTaken = (endTime - startTime) / 1000;
+            let aiSummary = generateAISummary(timeTaken);
+
             const data = {
                 type: "submit",
                 name: document.getElementById('name').value,
@@ -576,7 +332,9 @@
                 dept: formData.dept,
                 core: document.getElementById('core').checked ? "YES" : "NO",
                 avail: document.getElementById('avail').value,
-                skills: formData.tags
+                skills: formData.tags,
+                timeTaken: Math.floor(timeTaken) + " seconds",
+                aiSummary: aiSummary
             };
 
             fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', body:JSON.stringify(data) })
@@ -587,10 +345,34 @@
             document.querySelectorAll('.form-step').forEach(e=>e.classList.add('hidden'));
             document.getElementById('step-success').classList.remove('hidden');
             fireConfetti();
-            let msg = `*APNA BAZAAR V5 TICKET*%0A%0A👤 ${d.name}%0A📞 ${d.phone}%0A🏆 ${d.dept}%0A🔥 Core: ${d.core}%0A📅 ${d.avail}%0A🛠 ${d.skills.join(', ')}`;
+            // WhatsApp Msg includes the AI Summary for Admin
+            let msg = `*APNA BAZAAR V5 TICKET*%0A%0A👤 ${d.name}%0A📞 ${d.phone}%0A🏆 ${d.dept}%0A🔥 Core: ${d.core}%0A📅 ${d.avail}%0A🤖 *AI:* ${d.aiSummary}`;
             document.getElementById('wa-link').href = `https://wa.me/${ADMIN_PHONE}?text=${msg}`;
         }
 
+        // --- UTILS & MEMOIR ---
+        function openMemoir() { document.getElementById('memoir-modal').style.display = 'flex'; currentSlideIdx = 0; updateSlide(); }
+        function closeMemoir() { document.getElementById('memoir-modal').style.display = 'none'; }
+        function nextSlide() { currentSlideIdx = (currentSlideIdx + 1) % memoirPhotos.length; updateSlide(); }
+        function prevSlide() { currentSlideIdx = (currentSlideIdx - 1 + memoirPhotos.length) % memoirPhotos.length; updateSlide(); }
+        function updateSlide() {
+            document.getElementById('slide-img').src = memoirPhotos[currentSlideIdx].url;
+            document.getElementById('slide-cap').innerText = memoirPhotos[currentSlideIdx].cap;
+            document.getElementById('slide-count').innerText = `${currentSlideIdx + 1} / ${memoirPhotos.length}`;
+        }
+        function calcDept() {
+            let max = -1, best = "Manpower";
+            for(let d in formData.scores) if(formData.scores[d]>max){ max=formData.scores[d]; best=d; }
+            formData.dept = best;
+            document.getElementById('rec-dept').innerText = best.toUpperCase();
+            document.getElementById('rec-box').style.display = 'block';
+        }
+        function nextStep(s) {
+            if(s===2 && (!document.getElementById('name').value || !document.getElementById('phone').value)) { alert("Details required!"); return; }
+            formData.step = s; trackDropOff();
+            document.querySelectorAll('.form-step').forEach(e=>e.classList.add('hidden'));
+            document.getElementById('step-'+s).classList.remove('hidden');
+        }
         function setupBeacon() {
             document.addEventListener('visibilitychange', () => {
                 if(document.visibilityState==='hidden' && formData.step>0 && formData.step<4) {
@@ -599,13 +381,20 @@
                 }
             });
         }
-        function trackDropOff() { /* Logic handled in visibilitychange for silent tracking */ }
-
-        function toggleMusic() { 
-            let m=document.getElementById('bg-music'); 
-            if(m.paused) m.play(); else m.pause(); 
+        function trackDropOff() { }
+        function toggleMusic() { let m=document.getElementById('bg-music'); if(m.paused) m.play(); else m.pause(); }
+        function createFloatingArt() {
+            const emojis = ['🎨', '🖌️', '🎭', '🎪', '✨', '🖍️', '🎉', '🎵'];
+            const container = document.getElementById('loader');
+            for(let i=0; i<15; i++) {
+                let el = document.createElement('div'); el.className = 'floater';
+                el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                el.style.fontSize = (Math.random() * 2 + 2) + 'rem';
+                container.appendChild(el);
+            }
         }
-
         function fireConfetti() {
             for(let i=0; i<50; i++) {
                 let c=document.createElement('div'); c.className='confetti';
